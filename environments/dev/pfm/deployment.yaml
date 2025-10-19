@@ -36,4 +36,19 @@ spec:
             secretKeyRef:
               name: pfm-secrets
               key: oauth-client-secret
+        - name: JDBC_URL
+          valueFrom:
+            secretKeyRef:
+              name: pfm-postgres-app
+              key: jdbc-uri
+        - name: DB_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: pfm-postgres-app
+              key: username
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: pfm-postgres-app
+              key: password
         resources: {}
