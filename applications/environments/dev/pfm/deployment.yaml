@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: pfm
+  name: pfm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pfm
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: pfm
+    spec:
+      containers:
+      - image: pahlevani/assigned-project-pfm:0.0.1
+        name: pfm
+        resources: {}
