@@ -16,6 +16,6 @@ spec:
         app: pfm
     spec:
       containers:
-      - image: pahlevani/assigned-project-pfm:0.0.1
+      - image: pahlevani/pfm:v0.0.1-alpha
         name: pfm
         resources: {}
