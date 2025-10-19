@@ -18,4 +18,22 @@ spec:
       containers:
       - image: pahlevani/pfm:v0.0.1-alpha
         name: pfm
+        env:
+        - name: SECURITY_OAUTH2_JWT_ISSUER_URI
+          value: "https://accounts.google.com"
+        - name: SWAGGER_OAUTH_AUDIENCE
+          valueFrom:
+            secretKeyRef:
+              name: pfm-secrets
+              key: oauth-client-id
+        - name: SWAGGER_OAUTH_CLIENT_ID
+          valueFrom:
+            secretKeyRef:
+              name: pfm-secrets
+              key: oauth-client-id
+        - name: SWAGGER_OAUTH_CLIENT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: pfm-secrets
+              key: oauth-client-secret
         resources: {}
