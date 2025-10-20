@@ -16,7 +16,7 @@ spec:
         app: pfm
     spec:
       containers:
-      - image: pahlevani/pfm:v0.0.3-alpha
+      - image: pahlevani/pfm:v0.0.4-alpha
         name: pfm
         env:
         - name: SECURITY_OAUTH2_JWT_ISSUER_URI
