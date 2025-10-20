@@ -51,4 +51,25 @@ spec:
             secretKeyRef:
               name: pfm-postgres-app
               key: password
+        ports:
+        - containerPort: 8080
+          name: http
+        - containerPort: 9090
+          name: management
+        livenessProbe:
+          httpGet:
+            path: /actuator/health/liveness
+            port: 9090
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /actuator/health/readiness
+            port: 9090
+          initialDelaySeconds: 10
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
         resources: {}
