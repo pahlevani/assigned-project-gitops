@@ -25,7 +25,7 @@ spec:
           valueFrom:
             secretKeyRef:
               name: pfm-secrets
-              key: oauth-client-id
+              key: oauth-client-audience
         - name: SWAGGER_OAUTH_CLIENT_ID
           valueFrom:
             secretKeyRef:
