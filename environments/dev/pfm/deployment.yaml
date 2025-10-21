@@ -20,7 +20,7 @@ spec:
         name: pfm
         env:
         - name: SECURITY_OAUTH2_JWT_ISSUER_URI
-          value: "https://accounts.google.com"
+          value: "https://dev-mwye4hxzulrbwabh.us.auth0.com/"
         - name: SWAGGER_OAUTH_AUDIENCE
           valueFrom:
             secretKeyRef:
