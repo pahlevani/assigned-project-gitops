@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: pgadmin-dev
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/pahlevani/assigned-project-gitops.git
+    targetRevision: main
+    path: environments/dev/pgadmin
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: pgadmin-dev
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
