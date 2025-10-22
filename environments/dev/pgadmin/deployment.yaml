@@ -33,8 +33,6 @@ spec:
                 secretKeyRef:
                   name: pgadmin-secret
                   key: PGADMIN_DEFAULT_PASSWORD
-            - name: PGADMIN_LISTEN_ADDRESS
-              value: "0.0.0.0"
           volumeMounts:
             - name: pgadmin-data
               mountPath: /var/lib/pgadmin
