@@ -1,11 +1,24 @@
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
+  labels:
+    app: pfm
   name: pfm-postgres
-  namespace: pfm-dev
 spec:
   instances: 1
   storage:
     size: 1Gi
-  monitoring:
-    enablePodMonitor: true
+---
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  labels:
+    app: pfm
+    release: kube-prom-stack
+  name: pfm-postgres-monitor
+spec:
+  selector:
+    matchLabels:
+      "cnpg.io/cluster": pfm-postgres
+  podMetricsEndpoints:
+  - port: metrics
